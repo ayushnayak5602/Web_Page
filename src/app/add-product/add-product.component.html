@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+ <h2>Add Product</h2>
+ <form (ngSubmit)="addProduct()" #productForm="ngForm">
+    <div class="form-group">
+      <label>Name:</label>
+      <input [(ngModel)]="product.name" name="name" required class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Description:</label>
+      <input [(ngModel)]="product.description" name="description" required class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Price:</label>
+      <input [(ngModel)]="product.price" name="price" required class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Category:</label>
+      <select [(ngModel)]="product.category" name="category" required class="form-control">
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label>Manufacturer:</label>
+      <select [(ngModel)]="product.manufacturer" name="manufacturer" required class="form-control">
+        <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer">{{ manufacturer }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add Product</button>
+    </div>
+ </form>
+</body>
+</html>

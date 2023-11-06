@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ <title>Product List</title>
+</head>
+<body>
+ <div class="container">
+    <h2 class="text-center mt-5 mb-4">Product List</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Category</th>
+          <th scope="col">Manufacturer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>
+            <button (click)="editItem(product)">Edit</button>
+            <button (click)="deleteItem(product)">Delete</button>
+          </td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.category }}</td> <!-- Display category name -->
+          <td>{{ product.manufacturer }}</td> <!-- Display manufacturer name -->
+        </tr>
+      </tbody>
+    </table>
+ </div>
+</body>
+</html>
